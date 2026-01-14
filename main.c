@@ -29,8 +29,8 @@ int perform_copy(FILE* source_file, FILE* dest_file);
 // 파일 이동/삭제 및 폴더 생성 작업 수행.
 // base_dest_path : 정리된 폴더가 위치할 폴더 경로. ex) C:\Users\user\Desktop\Desktop_Clean\result
 int move_and_organize(const char* filename, const char* base_dest_path, const char* category);
-// 재귀적 디렉토리 생성 작업 수행
-int recursive_mkdir(const char* path);
+// 동적 디렉토리 생성 작업 수행
+int dynamic_mkdir(const char* path);
 // 파일 확장자 추출
 const char* get_extension(const char* filename);
 // 폴더 내 파일 탐색 및 정리 진입점
@@ -259,7 +259,7 @@ int perform_copy(FILE* source_file, FILE* dest_file)
     return 1; // 성공
 }
 
-int recursive_mkdir(const char* path)
+int dynamic_mkdir(const char* path)
 {
     char temp_path[512];
     char* p = NULL;
@@ -313,8 +313,8 @@ int move_and_organize(const char* filename, const char* base_dest_path, const ch
 
     sprintf(final_folder, "%s\\%s", base_dest_path, category);
 
-    // 재귀적 디렉토리 생성 실패 시 즉시 중단
-    if (recursive_mkdir(final_folder) != 0)
+    // 동적 디렉토리 생성 실패 시 즉시 중단
+    if (dynamic_mkdir(final_folder) != 0)
     {
         printf(" [실패] 디렉토리 생성 오류: %s\n", final_folder);
         return -2;  // 디렉토리 생성 오류

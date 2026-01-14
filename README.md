@@ -1,4 +1,4 @@
-# 🧹 Desktop Cleaner v5.0 (Personalized File Organization Automation System)
+# 🧹 Desktop Cleaner (Personalized File Organization Automation System)
 
 > **C언어 기반의 개인화 파일 정리 자동화 시스템**
 > 
